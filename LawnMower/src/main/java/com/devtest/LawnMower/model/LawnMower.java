@@ -4,6 +4,9 @@ import com.devtest.LawnMower.model.enums.Direction;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * @author Bassam El Khoury
+ */
 @Getter
 @Setter
 public class LawnMower {
