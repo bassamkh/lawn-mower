@@ -15,7 +15,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class LawnMowerServiceTest {
 
-    LawnMowerService lawnMowerService;
+    private LawnMowerServiceImpl lawnMowerService;
 
     @Before
     public void setup() {
