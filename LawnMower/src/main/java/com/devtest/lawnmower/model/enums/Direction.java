@@ -38,4 +38,18 @@ public enum Direction {
                 .orElse(null);
     }
 
+    public static Direction fromValue(String type) {
+        Direction direction = null;
+        if (NORTH.getType().equalsIgnoreCase(type)) {
+            direction = NORTH;
+        } else if (EAST.getType().equalsIgnoreCase(type)) {
+            direction = EAST;
+        } else if (SOUTH.getType().equalsIgnoreCase(type)){
+            direction = SOUTH;
+        } else if (WEST.getType().equalsIgnoreCase(type)) {
+            direction = WEST;
+        }
+        return direction;
+    }
+
 }

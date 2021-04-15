@@ -14,5 +14,5 @@ import java.util.List;
 @AllArgsConstructor
 public class Lawn {
     private int[] perimeter;
-    private List<LawnMower> lawnMowers;
+    private LawnMower lawnMowers;
 }
