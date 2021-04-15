@@ -1,4 +1,4 @@
-package com.devtest.LawnMower.model;
+package com.devtest.lawnmower.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,6 +13,6 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 public class Lawn {
-    private int[]perimeter;
+    private int[] perimeter;
     private List<LawnMower> lawnMowers;
 }

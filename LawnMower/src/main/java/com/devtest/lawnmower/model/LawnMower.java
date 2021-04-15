@@ -1,6 +1,6 @@
-package com.devtest.LawnMower.model;
+package com.devtest.lawnmower.model;
 
-import com.devtest.LawnMower.model.enums.Direction;
+import com.devtest.lawnmower.model.enums.Direction;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +14,7 @@ public class LawnMower {
     private Direction direction;
 
     public LawnMower(int xPosition, int yPosition, Direction direction) {
-        this.postion = new int[] {xPosition, yPosition};
+        this.postion = new int[]{xPosition, yPosition};
         this.direction = direction;
     }
 

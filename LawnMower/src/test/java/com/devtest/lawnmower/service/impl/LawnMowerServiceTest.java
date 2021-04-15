@@ -1,8 +1,8 @@
-package com.devtest.LawnMower.service.impl;
+package com.devtest.lawnmower.service.impl;
 
-import com.devtest.LawnMower.model.enums.Direction;
-import com.devtest.LawnMower.model.enums.Rotation;
-import com.devtest.LawnMower.service.LawnMowerService;
+import com.devtest.lawnmower.model.enums.Direction;
+import com.devtest.lawnmower.model.enums.Rotation;
+import com.devtest.lawnmower.service.LawnMowerService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,28 +23,28 @@ public class LawnMowerServiceTest {
     }
 
     @Test
-    public void whenRotateLeftFromNorth_isOk(){
+    public void whenRotateLeftFromNorth_isOk() {
         Direction result = lawnMowerService.rotate(Direction.NORTH, Rotation.GAUCHE);
 
         Assert.assertEquals(Direction.WEST, result);
     }
 
     @Test
-    public void whenRotateLeft_isOk(){
+    public void whenRotateLeft_isOk() {
         Direction result = lawnMowerService.rotate(Direction.WEST, Rotation.GAUCHE);
 
         Assert.assertEquals(Direction.SOUTH, result);
     }
 
     @Test
-    public void whenRotateRightFromWest_isOk(){
+    public void whenRotateRightFromWest_isOk() {
         Direction result = lawnMowerService.rotate(Direction.WEST, Rotation.DROITE);
 
         Assert.assertEquals(Direction.NORTH, result);
     }
 
     @Test
-    public void whenRotateRightFrom_isOk(){
+    public void whenRotateRightFrom_isOk() {
         Direction result = lawnMowerService.rotate(Direction.EAST, Rotation.DROITE);
 
         Assert.assertEquals(Direction.SOUTH, result);

@@ -1,4 +1,4 @@
-package com.devtest.LawnMower.model.enums;
+package com.devtest.lawnmower.model.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,17 +11,17 @@ import java.util.Arrays;
 @Getter
 @AllArgsConstructor
 public enum Direction {
-    NORTH("N",0,1),
-    SOUTH("S",2,-1),
-    EAST("E",1,1),
-    WEST("W",3,-1);
+    NORTH("N", 0, 1),
+    SOUTH("S", 2, -1),
+    EAST("E", 1, 1),
+    WEST("W", 3, -1);
 
     private String Type;
     private final int order;
     private final int movement;
 
-    public Direction getRight(){
-        if(this.equals(Direction.WEST))
+    public Direction getRight() {
+        if (this.equals(Direction.WEST))
             return NORTH;
         return Arrays.stream(Direction.values())
                 .filter(direction -> direction.order == this.order + 1)
@@ -29,8 +29,8 @@ public enum Direction {
                 .orElse(null);
     }
 
-    public Direction getLeft(){
-        if(this.equals(Direction.NORTH))
+    public Direction getLeft() {
+        if (this.equals(Direction.NORTH))
             return WEST;
         return Arrays.stream(Direction.values())
                 .filter(direction -> direction.order == this.order - 1)

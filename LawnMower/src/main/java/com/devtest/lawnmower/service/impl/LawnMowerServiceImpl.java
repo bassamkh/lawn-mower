@@ -1,8 +1,8 @@
-package com.devtest.LawnMower.service.impl;
+package com.devtest.lawnmower.service.impl;
 
-import com.devtest.LawnMower.model.enums.Direction;
-import com.devtest.LawnMower.model.enums.Rotation;
-import com.devtest.LawnMower.service.LawnMowerService;
+import com.devtest.lawnmower.model.enums.Direction;
+import com.devtest.lawnmower.model.enums.Rotation;
+import com.devtest.lawnmower.service.LawnMowerService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,12 +12,12 @@ import org.springframework.stereotype.Service;
 public class LawnMowerServiceImpl implements LawnMowerService {
 
     /**
-     *{@inheritDoc}
+     * {@inheritDoc}
      */
     @Override
-    public Direction rotate(Direction direction, Rotation rotation){
+    public Direction rotate(Direction direction, Rotation rotation) {
         Direction newDirection;
-        switch (rotation){
+        switch (rotation) {
             case DROITE:
                 newDirection = direction.getRight();
                 break;
@@ -26,7 +26,7 @@ public class LawnMowerServiceImpl implements LawnMowerService {
                 break;
             default:
                 newDirection = null;
-                 break;
+                break;
         }
         return newDirection;
     }

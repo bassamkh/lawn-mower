@@ -1,6 +1,6 @@
-package com.devtest.LawnMower.service;
+package com.devtest.lawnmower.service;
 
-import com.devtest.LawnMower.model.LawnMower;
+import com.devtest.lawnmower.model.LawnMower;
 
 import java.util.List;
 
@@ -10,10 +10,9 @@ import java.util.List;
 public interface LawnService {
 
     /**
-     *
      * @param perimeter perimeter of the Lawn
      * @param lawnMower the lawnmower that will be moving on the lawm
-     * @param commands the commands gived for the lawnmower to follow
+     * @param commands  the commands gived for the lawnmower to follow
      * @return the new position and direction of the lawnmower after executing the commands
      */
     LawnMower moveLawnMower(int[] perimeter, LawnMower lawnMower, List<String> commands);

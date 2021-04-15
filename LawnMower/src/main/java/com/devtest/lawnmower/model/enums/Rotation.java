@@ -1,4 +1,4 @@
-package com.devtest.LawnMower.model.enums;
+package com.devtest.lawnmower.model.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +14,7 @@ public enum Rotation {
     private final String type;
 
     public static Rotation fromValue(String type) {
-        if(GAUCHE.getType().equalsIgnoreCase(type)){
+        if (GAUCHE.getType().equalsIgnoreCase(type)) {
             return GAUCHE;
         } else {
             return DROITE;
