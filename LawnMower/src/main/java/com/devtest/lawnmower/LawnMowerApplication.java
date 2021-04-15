@@ -1,7 +1,10 @@
 package com.devtest.lawnmower;
 
-import com.devtest.lawnmower.model.LawnMower;
-import com.devtest.lawnmower.model.enums.Direction;
+import com.devtest.lawnmower.service.LawnMowerService;
+import com.devtest.lawnmower.service.LawnService;
+import com.devtest.lawnmower.service.impl.initializationServiceImpl;
+import com.devtest.lawnmower.service.impl.LawnMowerServiceImpl;
+import com.devtest.lawnmower.service.impl.LawnServiceImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,10 +14,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class LawnMowerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(LawnMowerApplication.class, args);
-		LawnMower mower = new LawnMower(1,2, Direction.NORTH);
-		System.out.println(mower.getPostion().length);
-	}
+
+    public static void main(String[] args) {
+        SpringApplication.run(LawnMowerApplication.class, args);
+
+        LawnMowerService lawnMowerService = new LawnMowerServiceImpl();
+        LawnService lawnService = new LawnServiceImpl(lawnMowerService);
+
+        initializationServiceImpl initializationServiceImpl =
+                new initializationServiceImpl(lawnService, lawnMowerService);
+
+        initializationServiceImpl.run();
+    }
 
 }
