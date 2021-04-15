@@ -6,43 +6,50 @@ import com.devtest.lawnmower.model.enums.Rotation;
 import com.devtest.lawnmower.service.LawnMowerService;
 import com.devtest.lawnmower.service.LawnService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author Bassam El Khoury
  */
 @RequiredArgsConstructor
+@Service
 public class LawnServiceImpl implements LawnService {
 
+    @Autowired
     private final LawnMowerService lawnMowerService;
 
     @Override
-    public LawnMower moveLawnMower(int[] perimeter, LawnMower lawnMower, List<String> commands) {
-        for (String command : commands) {
+    public LawnMower moveLawnMower(int[] perimeter, LawnMower lawnMower, String commands) {
+        String[] commandList = commands.split("");
+        for (String command : commandList) {
             if (this.checkIfRotation(command)) {
                 Rotation rotationCommand = Rotation.fromValue(command);
                 Direction newDirection = lawnMowerService.rotate(lawnMower.getDirection(), rotationCommand);
                 lawnMower.setDirection(newDirection);
             } else {
-                this.advance(perimeter, lawnMower);
+                lawnMower = this.advance(perimeter, lawnMower);
             }
         }
         return lawnMower;
     }
 
-    private void advance(int[] perimeter, LawnMower lawnMower) {
-        int xPosition = lawnMower.getPostion()[0];
-        int yPosition = lawnMower.getPostion()[1];
+    private LawnMower advance(int[] perimeter, LawnMower lawnMower) {
+        int xPosition = lawnMower.getPosition()[0];
+        int yPosition = lawnMower.getPosition()[1];
         Direction direction = lawnMower.getDirection();
 
         if (direction.equals(Direction.EAST) || direction.equals(Direction.WEST)) {
-            xPosition = this.calculatePosition(perimeter[0], yPosition, direction);
-            lawnMower.setPostion(new int[]{xPosition, yPosition});
+            xPosition = this.calculatePosition(perimeter[0], xPosition, direction);
+            lawnMower.setPosition(new int[]{xPosition, yPosition});
         } else {
-            yPosition = this.calculatePosition(perimeter[1], xPosition, direction);
-            lawnMower.setPostion(new int[]{xPosition, yPosition});
+            yPosition = this.calculatePosition(perimeter[1], yPosition, direction);
+            lawnMower.setPosition(new int[]{xPosition, yPosition});
         }
+        return lawnMower;
     }
 
     private int calculatePosition(int perimeter, int position, Direction direction) {

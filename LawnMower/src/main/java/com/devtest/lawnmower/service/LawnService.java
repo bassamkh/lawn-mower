@@ -15,5 +15,5 @@ public interface LawnService {
      * @param commands  the commands gived for the lawnmower to follow
      * @return the new position and direction of the lawnmower after executing the commands
      */
-    LawnMower moveLawnMower(int[] perimeter, LawnMower lawnMower, List<String> commands);
+    LawnMower moveLawnMower(int[] perimeter, LawnMower lawnMower, String commands);
 }
