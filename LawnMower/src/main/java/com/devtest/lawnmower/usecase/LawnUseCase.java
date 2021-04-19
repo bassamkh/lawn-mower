@@ -1,13 +1,11 @@
-package com.devtest.lawnmower.service;
+package com.devtest.lawnmower.usecase;
 
 import com.devtest.lawnmower.model.LawnMower;
-
-import java.util.List;
 
 /**
  * @author Bassam El Khoury
  */
-public interface LawnService {
+public interface LawnUseCase {
 
     /**
      * @param perimeter perimeter of the Lawn

@@ -1,26 +1,21 @@
-package com.devtest.lawnmower.service.impl;
+package com.devtest.lawnmower.usecase.impl;
 
 import com.devtest.lawnmower.model.LawnMower;
 import com.devtest.lawnmower.model.enums.Direction;
 import com.devtest.lawnmower.model.enums.Rotation;
-import com.devtest.lawnmower.service.LawnMowerService;
-import com.devtest.lawnmower.service.LawnService;
+import com.devtest.lawnmower.usecase.LawnMowerUseCase;
+import com.devtest.lawnmower.usecase.LawnUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author Bassam El Khoury
  */
 @RequiredArgsConstructor
-@Service
-public class LawnServiceImpl implements LawnService {
+public class LawnUseCaseDefaultImpl implements LawnUseCase {
 
     @Autowired
-    private final LawnMowerService lawnMowerService;
+    private final LawnMowerUseCase lawnMowerUseCase;
 
     @Override
     public LawnMower moveLawnMower(int[] perimeter, LawnMower lawnMower, String commands) {
@@ -28,7 +23,7 @@ public class LawnServiceImpl implements LawnService {
         for (String command : commandList) {
             if (this.checkIfRotation(command)) {
                 Rotation rotationCommand = Rotation.fromValue(command);
-                Direction newDirection = lawnMowerService.rotate(lawnMower.getDirection(), rotationCommand);
+                Direction newDirection = lawnMowerUseCase.rotate(lawnMower.getDirection(), rotationCommand);
                 lawnMower.setDirection(newDirection);
             } else {
                 lawnMower = this.advance(perimeter, lawnMower);

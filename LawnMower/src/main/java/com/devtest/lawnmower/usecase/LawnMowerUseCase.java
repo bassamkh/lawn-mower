@@ -1,4 +1,4 @@
-package com.devtest.lawnmower.service;
+package com.devtest.lawnmower.usecase;
 
 import com.devtest.lawnmower.model.LawnMower;
 import com.devtest.lawnmower.model.enums.Direction;
@@ -7,7 +7,7 @@ import com.devtest.lawnmower.model.enums.Rotation;
 /**
  * @author Bassam El Khoury
  */
-public interface LawnMowerService {
+public interface LawnMowerUseCase {
     /**
      * Rotates the Lawnmower to its desired direction
      *
@@ -18,9 +18,11 @@ public interface LawnMowerService {
     Direction rotate(Direction direction, Rotation rotation);
 
     /**
-     * Prints the position and direction of the lawn mower
+     * Takes the Lawn mower object and return its parameters as a string.
      *
-     * @return
+     * @param lawnMower Final lawn mower with the a new position
+     * @return the new position in string.
      */
-    void print(LawnMower lawnMower);
+    String returnLawnMowerPositionAndDirection(LawnMower lawnMower);
+
 }
