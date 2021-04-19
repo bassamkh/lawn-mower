@@ -5,35 +5,33 @@ import com.devtest.lawnmower.model.LawnMower;
 import com.devtest.lawnmower.model.enums.Direction;
 import com.devtest.lawnmower.usecase.LawnMowerUseCase;
 import com.devtest.lawnmower.usecase.LawnUseCase;
-import com.devtest.lawnmower.usecase.InitializationUseCase;
+import com.devtest.lawnmower.usecase.InitialisationUseCase;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 /**
  * @author Bassam El Khoury
  */
+@Component
 @RequiredArgsConstructor
-public class InitializationUseCaseDefaultImpl implements InitializationUseCase {
+public class InitialisationUseCaseDefaultImpl implements InitialisationUseCase {
 
-    private final String TEXT_FILE_PATH = "src/main/resources/TextFile";
-
-    @Autowired
     private final LawnUseCase lawnUseCase;
-    @Autowired
     private final LawnMowerUseCase lawnMowerUseCase;
 
     @Override
-    public List run() {
+    public List readFromFileAndCompute(String filePath) throws FileNotFoundException {
         int count = 0;
         String perimeter = "";
         List<String> finalPosition = new ArrayList();
         Lawn lawn = null;
 
         try {
-            File file = new File(TEXT_FILE_PATH);
+            File file = new File(filePath);
             Scanner myReader = new Scanner(file);
 
             while (myReader.hasNextLine()) {
@@ -44,9 +42,10 @@ public class InitializationUseCaseDefaultImpl implements InitializationUseCase {
                 count++;
             }
             myReader.close();
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
+            throw e;
         }
         return finalPosition;
     }
