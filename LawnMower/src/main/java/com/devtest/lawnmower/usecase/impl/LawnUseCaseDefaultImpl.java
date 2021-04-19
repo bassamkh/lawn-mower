@@ -7,14 +7,15 @@ import com.devtest.lawnmower.usecase.LawnMowerUseCase;
 import com.devtest.lawnmower.usecase.LawnUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * @author Bassam El Khoury
  */
+@Component
 @RequiredArgsConstructor
 public class LawnUseCaseDefaultImpl implements LawnUseCase {
 
-    @Autowired
     private final LawnMowerUseCase lawnMowerUseCase;
 
     @Override
