@@ -1,5 +1,6 @@
 package com.devtest.lawnmower.usecase.impl;
 
+import com.devtest.lawnmower.model.LawnMower;
 import com.devtest.lawnmower.model.enums.Direction;
 import com.devtest.lawnmower.model.enums.Rotation;
 import org.junit.Assert;
@@ -43,5 +44,15 @@ public class LawnMowerUseCaseDefaultTest {
         Direction result = lawnMowerUseCase.rotate(Direction.EAST, Rotation.DROITE);
 
         Assert.assertEquals(Direction.SOUTH, result);
+    }
+
+    @Test
+    public void whenReturnLawnMowerPositionAndDirection_isOk() {
+        LawnMower lawnMower = new LawnMower(1, 1, Direction.EAST);
+
+        String result = this.lawnMowerUseCase.returnLawnMowerPositionAndDirection(lawnMower);
+
+        Assert.assertNotNull(result);
+        Assert.assertEquals("1 1 E", result);
     }
 }

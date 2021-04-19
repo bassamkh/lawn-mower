@@ -4,12 +4,12 @@ import com.devtest.lawnmower.model.LawnMower;
 import com.devtest.lawnmower.model.enums.Direction;
 import com.devtest.lawnmower.model.enums.Rotation;
 import com.devtest.lawnmower.usecase.LawnMowerUseCase;
-import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 /**
  * @author Bassam El Khoury
  */
-@RequiredArgsConstructor
+@Component
 public class LawnMowerUseCaseDefaultImpl implements LawnMowerUseCase {
 
     /**
