@@ -44,7 +44,7 @@ public enum Direction {
             direction = NORTH;
         } else if (EAST.getType().equalsIgnoreCase(type)) {
             direction = EAST;
-        } else if (SOUTH.getType().equalsIgnoreCase(type)){
+        } else if (SOUTH.getType().equalsIgnoreCase(type)) {
             direction = SOUTH;
         } else if (WEST.getType().equalsIgnoreCase(type)) {
             direction = WEST;
